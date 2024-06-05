@@ -6,9 +6,15 @@ def csvToWpjson(dir):
 
     with open(dir, newline='',encoding="utf-8") as csvfile:
         spamreader = csv.reader(csvfile, delimiter=";")
-        numcol = len(next(spamreader))
+        
+        csvhead = next(spamreader)
+        head = [lang for lang in csvhead[1:]]
+
+        numcol = len(csvhead)
         resultList = [""]*(numcol-1)
         
+
+        ##generate the WPJson
         compteurligne = 0
         for rowindex,row in enumerate(spamreader):
             compteurligne += 1
@@ -29,15 +35,5 @@ def csvToWpjson(dir):
             resultList[colLang-1] = "a:"+ str(compteurligne) +":{"+resultList[colLang-1]+"}"
 
     
-    return resultList
+    return head,resultList
 
-
-def mergeWPJson(str1,str2):
-    pass
-     
-
-wpJson = csvToWpjson("traductionvirgu.csv")
-
-for st in wpJson:
-     print(st)
-     print("----------------------")
