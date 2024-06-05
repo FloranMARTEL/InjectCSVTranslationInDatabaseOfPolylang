@@ -25,7 +25,7 @@ def csvToWpjson(dir):
 
             
         for colLang in range(1,numcol):
-            #a:3:{i:0;a:2:{i:0;s:2:\"je\";i:1;s:2:\"je\"};i:1;a:2:{i:0;s:1:\"n\";i:1;s:4:\"nous\"};i:2;a:2:{i:0;s:1:\"v\";i:1;s:4:\"vous\"}}
+            
             resultList[colLang-1] = "a:"+ str(compteurligne) +":{"+resultList[colLang-1]+"}"
 
     
