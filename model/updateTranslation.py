@@ -1,29 +1,24 @@
 # Module Imports
 import mariadb
-from mariadb.cursors import Cursor
 import sys
 
 import re
 
-from convertiseur import csvToWpjson
 
-def updateTranslation(JsonLangs,listwpJson):
+def updateTranslation(JsonLangs,listwpJson,user,password,host,port,database):
     # Connect to MariaDB Platform
-    try:
-        conn = mariadb.connect(
-            user="root",
-            password="",
-            host="127.0.0.1",
-            port=3306,
-            database="www_guillemot"
-        )
-
-    except mariadb.Error as e:
-        print(f"Error connecting to MariaDB Platform: {e}")
-        sys.exit(1)
+    
+    
+    conn = mariadb.connect(
+        user=user,
+        password=password,
+        host=host,
+        port=port,
+        database=database
+    )
 
     # Get Cursor
-    cur : Cursor = conn.cursor()
+    cur = conn.cursor()
 
     cur.execute(
         "SELECT option_value FROM wp_options WHERE option_name = '_transient_pll_languages_list';", 
@@ -36,7 +31,7 @@ def updateTranslation(JsonLangs,listwpJson):
         result.append(ligne)
 
     if len(result) != 1:
-        raise IndexError
+        raise IndexError("Lang non trouvé")
     stringResult : str = result[0][0]
 
 
@@ -66,11 +61,3 @@ def updateTranslation(JsonLangs,listwpJson):
 
     conn.close()
         
-
-
-dirrectory = "traductionvirgu.csv"
-
-langs,wpJson = csvToWpjson(dirrectory)
-
-
-updateTranslation(langs,wpJson)
