@@ -13,7 +13,7 @@ class MainView(Tk):
 
         mainFrame = Frame(self)
 
-
+        self.title("Traduction")
 
         #top
         dataBaseBox = Frame(mainFrame)
