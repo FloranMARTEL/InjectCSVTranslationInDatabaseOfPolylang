@@ -31,7 +31,7 @@ def updateTranslation(JsonLangs,listwpJson,user,password,host,port,database):
         result.append(ligne)
 
     if len(result) != 1:
-        raise IndexError("Lang non trouvé")
+        raise IndexError("Lang non trouvé, le plugin polylang est-il bien installé")
     stringResult : str = result[0][0]
 
 
