@@ -42,20 +42,3 @@ def csvToWpjson(dir):
         result += str(compteurLigne)+":"+stringlistVal
     
     return result
-
-
-
-
-
-print(csvToWpjson("exemple.csv"))
-
-
-
-
-#fr,en
-#je,I
-
-
-#a:1:{i:0;a:2:{i:0;s:2:"je";i:1;s:1:"I"}}
-
-#a:1:{i:1;a:2:{i:0;s:2:'je';i:1;s:1:'I'}}x

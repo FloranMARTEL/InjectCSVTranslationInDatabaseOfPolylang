@@ -16,6 +16,11 @@ Pour lancer l'application, allez dans votre terminal dans ce répertoire, puis f
 ```
 pip install tkinter
 ```
+Aller dans le fichier src
+
+```
+cd src
+```
 
 Puis lancer le fichier main.py
 
