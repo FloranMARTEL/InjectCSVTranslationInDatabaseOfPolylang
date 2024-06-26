@@ -5,7 +5,7 @@ version : 1.0
 date-dernière-version : 06/06/2024 
 
 
-# Convertiseur CSV To WPJson
+# Injection des traductions dans la base de données du plugin Polylang
 
 
 Cette ouille est une extension au plugin Polylang de WordPress pour insérer les traduction des source d'un fichier CSV dans la base de donner WordPress
